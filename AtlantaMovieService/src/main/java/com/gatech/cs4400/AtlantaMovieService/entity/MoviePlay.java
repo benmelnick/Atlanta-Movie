@@ -1,14 +1,14 @@
 package com.gatech.cs4400.AtlantaMovieService.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table (name = "MOVIEPLAY")
 public class MoviePlay {
@@ -16,7 +16,4 @@ public class MoviePlay {
     @EmbeddedId
     private MoviePlayId moviePlayId;
 
-    @NonNull
-    @Temporal (value = TemporalType.DATE)
-    private Date playDate;
 }
