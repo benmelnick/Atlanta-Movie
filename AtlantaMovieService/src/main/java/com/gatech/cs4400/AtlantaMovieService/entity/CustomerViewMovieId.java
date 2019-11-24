@@ -1,32 +1,34 @@
 package com.gatech.cs4400.AtlantaMovieService.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Embeddable
 public class CustomerViewMovieId implements Serializable {
 
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "CreditCardNum")
+    @JoinColumn(name = "CreditCardId")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private CreditCard creditCard;
 
     @NonNull
-    private MoviePlayId moviePlayId;
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "Company", referencedColumnName = "Company"),
+            @JoinColumn(name = "TheaterName", referencedColumnName = "TheaterName"),
+            @JoinColumn(name = "MovieName", referencedColumnName = "MovieName"),
+            @JoinColumn(name = "PlayDate", referencedColumnName = "PlayDate"),
+            @JoinColumn(name = "ReleaseDate", referencedColumnName = "ReleaseDate")
+    })
+    private MoviePlay moviePlay;
 }
