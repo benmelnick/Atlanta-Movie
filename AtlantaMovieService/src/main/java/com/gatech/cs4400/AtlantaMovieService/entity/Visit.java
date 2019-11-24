@@ -1,9 +1,7 @@
 package com.gatech.cs4400.AtlantaMovieService.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,6 +10,8 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table (name = "VISIT")
 public class Visit {
@@ -28,7 +28,13 @@ public class Visit {
     private User user;
 
     @NonNull
-    private TheaterId theaterId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumns({
+            @JoinColumn(name = "TheaterName", referencedColumnName = "TheaterName"),
+            @JoinColumn(name = "Company", referencedColumnName = "Company")
+    })
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Theater theater;
 
     @NonNull
     @Temporal (value = TemporalType.DATE)
