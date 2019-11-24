@@ -1,20 +1,16 @@
 package com.gatech.cs4400.AtlantaMovieService.service;
 
 import com.gatech.cs4400.AtlantaMovieService.entity.Company;
-import com.gatech.cs4400.AtlantaMovieService.entity.Theater;
-import com.gatech.cs4400.AtlantaMovieService.exception.BadRequestException;
 import com.gatech.cs4400.AtlantaMovieService.exception.ResourceNotFoundException;
 import com.gatech.cs4400.AtlantaMovieService.payload.CompanyFilterSummary;
 import com.gatech.cs4400.AtlantaMovieService.payload.ManagerSummary;
 import com.gatech.cs4400.AtlantaMovieService.payload.TheaterSummary;
 import com.gatech.cs4400.AtlantaMovieService.repository.CompanyRepository;
 import com.gatech.cs4400.AtlantaMovieService.repository.ManagerRepository;
-import com.gatech.cs4400.AtlantaMovieService.repository.TheaterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

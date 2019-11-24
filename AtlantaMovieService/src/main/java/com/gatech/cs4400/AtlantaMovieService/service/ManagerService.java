@@ -6,7 +6,6 @@ import com.gatech.cs4400.AtlantaMovieService.entity.Theater;
 import com.gatech.cs4400.AtlantaMovieService.entity.User;
 import com.gatech.cs4400.AtlantaMovieService.exception.BadRequestException;
 import com.gatech.cs4400.AtlantaMovieService.exception.ResourceNotFoundException;
-import com.gatech.cs4400.AtlantaMovieService.payload.ManagerCustomerSignupRequest;
 import com.gatech.cs4400.AtlantaMovieService.payload.ManagerSignUpRequest;
 import com.gatech.cs4400.AtlantaMovieService.payload.ManagerSummary;
 import com.gatech.cs4400.AtlantaMovieService.repository.CompanyRepository;
@@ -15,11 +14,6 @@ import com.gatech.cs4400.AtlantaMovieService.repository.TheaterRepository;
 import com.gatech.cs4400.AtlantaMovieService.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 
 @Component
 public class ManagerService {

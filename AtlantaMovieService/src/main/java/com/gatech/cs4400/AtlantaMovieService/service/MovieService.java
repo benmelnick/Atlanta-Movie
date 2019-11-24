@@ -8,7 +8,6 @@ import com.gatech.cs4400.AtlantaMovieService.payload.MoviePlaySummary;
 import com.gatech.cs4400.AtlantaMovieService.payload.ScheduleMovieRequest;
 import com.gatech.cs4400.AtlantaMovieService.repository.MoviePlayRepository;
 import com.gatech.cs4400.AtlantaMovieService.repository.MovieRepository;
-import com.gatech.cs4400.AtlantaMovieService.repository.TheaterRepository;
 import com.gatech.cs4400.AtlantaMovieService.search.MoviesPlayingSpec;
 import com.gatech.cs4400.AtlantaMovieService.search.MoviesSpec;
 import org.springframework.beans.factory.annotation.Autowired;
