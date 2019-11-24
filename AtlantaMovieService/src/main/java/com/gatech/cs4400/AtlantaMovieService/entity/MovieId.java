@@ -1,9 +1,6 @@
 package com.gatech.cs4400.AtlantaMovieService.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
@@ -14,6 +11,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Embeddable
 public class MovieId implements Serializable {
 
