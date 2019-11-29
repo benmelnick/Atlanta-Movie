@@ -8,3 +8,10 @@ The Atlanta Movie application is an online system for managing users, theaters, 
 - DB: MySQL
 - Back-End: Spring Boot
 - Front-End: ReactJS, Redux
+
+# Installing the Backend Locally
+1. Clone this repository
+2. Make sure you have a MySQL server running containing correct table schema and data - enter your MySQL schema name and credentials in `application.resources`
+3. Either open the project in IntelliJ or some other IDE, or navigate to the `src` directory in the code
+4. To start the server, run `./gradlew bootRun` - API endpoints can then be reach; the base path is `localhost:8080/api/v1`
+5. To access Swagger API documentation, enter `localhost:8080/api/v1/swagger-ui.html` in your browser - the server must be running in order to reach the API docs
