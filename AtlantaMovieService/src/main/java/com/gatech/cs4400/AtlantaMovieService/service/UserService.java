@@ -125,7 +125,7 @@ public class UserService {
 
     public UserSummary declineUser(User user) {
         checkUserStatus(user);
-        user.setStatus("Approved");
+        user.setStatus("Declined");
         return entityToSummary(userRepository.save(user));
     }
 
