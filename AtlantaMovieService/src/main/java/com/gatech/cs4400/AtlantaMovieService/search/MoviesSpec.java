@@ -11,7 +11,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 @And({
         @Spec(path = "movieId.movieName", params = "movieName", spec = LikeIgnoreCase.class),
-        @Spec(path = "duration", params = {"minDuration", "maxDuration"}, spec = Between.class),
+        @Spec(path = "duration", params = "minDuration", spec = GreaterThanOrEqual.class),
+        @Spec(path = "duration", params = "maxDuration", spec = LessThanOrEqual.class),
         @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedAfter", spec = GreaterThanOrEqual.class),
         @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedBefore", spec = LessThanOrEqual.class)
 })
