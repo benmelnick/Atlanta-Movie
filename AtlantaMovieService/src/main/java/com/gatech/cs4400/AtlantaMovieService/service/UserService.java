@@ -118,13 +118,17 @@ public class UserService {
     }
 
     public UserSummary approveUser(User user) {
-        checkUserStatus(user);
+        if (user.getStatus().equals("Approved")) {
+            throw new BadRequestException("User has already been approved");
+        }
         user.setStatus("Approved");
         return entityToSummary(userRepository.save(user));
     }
 
     public UserSummary declineUser(User user) {
-        checkUserStatus(user);
+        if (user.getStatus().equals("Declined")) {
+            throw new BadRequestException("User has already been declined");
+        }
         user.setStatus("Declined");
         return entityToSummary(userRepository.save(user));
     }
@@ -153,16 +157,6 @@ public class UserService {
                 .filter(visit -> visit.getUser().getUsername().equals(username))
                 .map(visit -> visitToHistorySummary(visit))
                 .collect(Collectors.toList());
-    }
-
-    private void checkUserStatus(User user) {
-        if (user.getStatus().equals("Approved")) {
-            throw new BadRequestException("User has already been approved");
-        }
-
-        if (user.getStatus().equals("Declined")) {
-            throw new BadRequestException("User has already been declined");
-        }
     }
 
     public Boolean isUserCustomer(String username) {

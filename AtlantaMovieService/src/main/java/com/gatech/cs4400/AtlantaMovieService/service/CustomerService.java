@@ -203,7 +203,7 @@ public class CustomerService {
         String movieName = customerViewMovie.getCustomerViewMovieId().getMoviePlay().getMoviePlayId().getMovie().getMovieId().getMovieName();
         String companyName = customerViewMovie.getCustomerViewMovieId().getMoviePlay().getMoviePlayId().getTheater().getTheaterId().getCompany().getName();
         String theaterName = customerViewMovie.getCustomerViewMovieId().getMoviePlay().getMoviePlayId().getTheater().getTheaterId().getTheaterName();
-        String creditCardNum = customerViewMovie.getCustomerViewMovieId().getCreditCard().getCreditCardNum();
+        String creditCardNum = protectedCreditCardString(customerViewMovie.getCustomerViewMovieId().getCreditCard().getCreditCardNum());
         Date viewDate = customerViewMovie.getCustomerViewMovieId().getMoviePlay().getMoviePlayId().getPlayDate();
 
         return new ViewHistorySummary().builder()
