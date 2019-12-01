@@ -8,7 +8,7 @@ import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.springframework.data.jpa.domain.Specification;
 
 @And({
-        @Spec(path = "customer", params = "customer", spec = LikeIgnoreCase.class),
+        @Spec(path = "username", params = "username", spec = LikeIgnoreCase.class),
         @Spec(path = "status", params = "status", spec = Equal.class)
 })
 public interface UsernameStatusSpec extends Specification<User> {
