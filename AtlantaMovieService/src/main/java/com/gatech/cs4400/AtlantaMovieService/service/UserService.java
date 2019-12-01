@@ -118,16 +118,13 @@ public class UserService {
     }
 
     public UserSummary approveUser(User user) {
-        if (user.getStatus().equals("Approved")) {
-            throw new BadRequestException("User has already been approved");
-        }
         user.setStatus("Approved");
         return entityToSummary(userRepository.save(user));
     }
 
     public UserSummary declineUser(User user) {
-        if (user.getStatus().equals("Declined")) {
-            throw new BadRequestException("User has already been declined");
+        if (user.getStatus().equals("Approved")) {
+            throw new BadRequestException("Approved users cannot be declined.");
         }
         user.setStatus("Declined");
         return entityToSummary(userRepository.save(user));
