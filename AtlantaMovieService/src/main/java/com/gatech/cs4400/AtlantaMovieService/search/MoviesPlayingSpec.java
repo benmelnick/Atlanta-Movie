@@ -9,7 +9,8 @@ import org.springframework.data.jpa.domain.Specification;
 @And({
         @Spec(path = "moviePlayId.theater.theaterId.company.name", params = "companyName", spec = LikeIgnoreCase.class),
         @Spec(path = "moviePlayId.movie.movieId.movieName", params = "movieName", spec = LikeIgnoreCase.class),
-        @Spec(path = "moviePlayId.movie.duration", params = {"minDuration", "maxDuration"}, spec = Between.class),
+        @Spec(path = "moviePlayId.movie.duration", params = "minDuration", spec = GreaterThanOrEqual.class),
+        @Spec(path = "moviePlayId.movie.duration", params = "maxDuration", spec = LessThanOrEqual.class),
         @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedAfter", spec = GreaterThanOrEqual.class),
         @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedBefore", spec = LessThanOrEqual.class),
         @Spec(path = "moviePlayId.playDate", params = "playedAfter", spec = GreaterThanOrEqual.class),
