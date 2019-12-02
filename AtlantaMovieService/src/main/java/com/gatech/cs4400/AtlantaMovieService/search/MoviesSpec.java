@@ -13,8 +13,8 @@ import org.springframework.data.jpa.domain.Specification;
         @Spec(path = "movieId.movieName", params = "movieName", spec = LikeIgnoreCase.class),
         @Spec(path = "duration", params = "minDuration", spec = GreaterThanOrEqual.class),
         @Spec(path = "duration", params = "maxDuration", spec = LessThanOrEqual.class),
-        @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedAfter", spec = GreaterThanOrEqual.class),
-        @Spec(path = "moviePlayId.movie.movieId.releaseDate", params = "releasedBefore", spec = LessThanOrEqual.class)
+        @Spec(path = "movieId.releaseDate", params = "releasedAfter", spec = GreaterThanOrEqual.class),
+        @Spec(path = "movieId.releaseDate", params = "releasedBefore", spec = LessThanOrEqual.class)
 })
 public interface MoviesSpec extends Specification<Movie> {
 }
