@@ -1,5 +1,6 @@
 package com.gatech.cs4400.AtlantaMovieService.payload;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +17,6 @@ public class VisitHistorySummary {
     private String theaterName;
     private String companyName;
     private String address;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="UTC")
     private Date visitDate;
 }
